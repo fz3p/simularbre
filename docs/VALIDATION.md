@@ -15,5 +15,6 @@
 - Les modules JavaScript, la feuille CSS et l’icône répondent en HTTP 200.
 - Chargement en Chromium : le catalogue est rendu.
 - Le site PlumesLog du même VPS répond toujours normalement.
+- Version 1.4 : HTTPS répond en 200 et affiche « VERSION 1.4 » ; les six ressources liées répondent en 200. Le module `varieties.js` servi a la même empreinte SHA-256 que le fichier construit. Le navigateur affiche les 27 variétés et les deux sources de Folfer. Les chemins `/.private/varieties.js` et `/Plan_verger.ods` répondent en 404.
 
 La projection de croissance reste illustrative et non calibrée. Les données agronomiques n’ont pas fait l’objet d’une validation externe.

@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "name": "Exemple · parcelle sèche sans irrigation",
+  "filters": {
+    "species": "all",
+    "maxHeight": null,
+    "drought": "high",
+    "irrigation": "none",
+    "waterlogging": "unknown",
+    "lime": "unknown",
+    "shallow": "unknown"
+  },
+  "selected": [
+    "pg-4",
+    "pg-16",
+    "pg-24"
+  ],
+  "simulation": {
+    "rootstock": "pg-4",
+    "years": 20,
+    "initialHeight": 1.2,
+    "rate": 0.12,
+    "factor": 1,
+    "crownRatio": 0.65,
+    "rowSpacing": 10,
+    "treeSpacing": 7,
+    "area": 1
+  }
+}

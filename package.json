@@ -1,0 +1,14 @@
+{
+  "name": "simularbre",
+  "version": "1.2.0",
+  "description": "Application web de choix de fruitiers et de projection de croissance",
+  "author": "Projet simulArbre",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/serve.mjs",
+    "build:web": "node scripts/build-web.mjs",
+    "test": "node tests/engine.test.mjs"
+  }
+}

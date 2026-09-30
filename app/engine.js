@@ -1,4 +1,4 @@
-import {rootstocks, defaultProject, databaseVersion, sources} from './data.js';
+import {rootstocks, speciesClimate, defaultProject, databaseVersion, sources} from './data.js';
 export const midpoint = r => (r[0]+r[1])/2;
 export function assess(stock, filters) {
  const checks=[];
@@ -31,7 +31,7 @@ export function simulate(p) {
   const h=height(midpoint(stock.height),year), crown=h*p.crownRatio;
   return {year,height:h,low:height(stock.height[0],year),high:height(stock.height[1],year),crown,footprint:Math.PI*(crown/2)**2,overlap:crown>Math.min(p.treeSpacing,p.rowSpacing)};
  });
- return {stock,series,density,trees:Math.floor(density*p.area),spacingWarning:p.treeSpacing<stock.spacing[0],sumFootprint:series.at(-1).footprint*density/10000*100};
+ return {stock,series,density,trees:Math.floor(density*p.area),spacingWarning:stock.spacing===null?null:p.treeSpacing<stock.spacing[0],sumFootprint:series.at(-1).footprint*density/10000*100};
 }
 export function validateProject(value) {
  if(!value||typeof value!=='object'||value.version!==1) throw Error('Format de projet non reconnu (version 1 attendue).');
@@ -49,5 +49,5 @@ export function validateProject(value) {
 }
 export function report(project) {
  const clean=validateProject(project);
- return { ...clean, exportedAt:new Date().toISOString(),databaseVersion,method:'Projection illustrative non calibrée : H(t)=H0+(H∞−H0)×(1−exp(−k×f×t)). Les bornes reflètent seulement la fourchette adulte, pas une incertitude statistique.',results:rankStocks(clean.filters),projection:simulate(clean.simulation),sources};
+ return { ...clean, exportedAt:new Date().toISOString(),databaseVersion,method:'Projection illustrative non calibrée : H(t)=H0+(H∞−H0)×(1−exp(−k×f×t)). Les bornes reflètent seulement la fourchette adulte, pas une incertitude statistique.',results:rankStocks(clean.filters),speciesClimate,temperatureMaximum:'Non documentée pour toutes les espèces : aucun seuil comparable retenu.',projection:simulate(clean.simulation),sources};
 }

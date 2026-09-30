@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {rootstocks,sources,defaultProject} from '../app/data.js';
+import {rootstocks,sources,species,speciesClimate,defaultProject,databaseVersion} from '../app/data.js';
 import {assess,rankStocks,simulate,validateProject,report} from '../app/engine.js';
 const stock=(species,name)=>rootstocks.find(r=>r.species===species&&r.name===name);
 const filters=patch=>({...defaultProject.filters,...patch});
 test('Toutes les associations ont des intervalles cohérents et une source technique traçable',()=>{
- assert.equal(rootstocks.length,25);assert.equal(new Set(rootstocks.map(r=>r.id)).size,25);
- for(const r of rootstocks){assert.ok(sources.find(s=>s.id===r.source)?.url.startsWith('https://www.grab.fr/'));for(const key of ['height','spacing','fruiting']){assert.ok(r[key][0]>0);assert.ok(r[key][1]>=r[key][0]);}}
+ assert.equal(rootstocks.length,30);assert.equal(new Set(rootstocks.map(r=>r.id)).size,30);
+ for(const r of rootstocks){assert.ok(sources.find(s=>s.id===r.source)?.url.startsWith('https://'));for(const key of ['height','spacing','fruiting']){if(r[key]===null)continue;assert.ok(r[key][0]>0);assert.ok(r[key][1]>=r[key][0]);}}
+ assert.deepEqual(rootstocks.slice(0,25).map(r=>r.id),Array.from({length:25},(_,i)=>`pg-${i+1}`));
 });
 test('Une donnée absente ne valide jamais la tolérance au calcaire',()=>{
  const a=assess(stock('pommier','M9'),filters({lime:'high'}));assert.equal(a.status,'uncertain');assert.equal(a.unknowns,1);
@@ -49,14 +50,28 @@ test('Import : validation stricte, nombres finis, limites et sélection',()=>{
  assert.throws(()=>validateProject({version:2}));
 });
 test('Un export est réimportable sans données privées',()=>{
- const data=report(defaultProject);assert.deepEqual(validateProject(JSON.parse(JSON.stringify(data))),defaultProject);assert.ok(data.sources.length>=9);assert.match(data.method,/non calibrée/);assert.equal(data.databaseVersion,'2026-09-27');
+ const data=report(defaultProject);assert.deepEqual(validateProject(JSON.parse(JSON.stringify(data))),defaultProject);assert.ok(data.sources.length>=9);assert.match(data.method,/non calibrée/);assert.equal(data.databaseVersion,databaseVersion);
  assert.equal('orchardVarieties' in data,false);assert.equal('varietyNotes' in data,false);
  assert.ok(data.sources.every(source=>source.id!=='PV0'));
+ assert.equal(data.speciesClimate.noisetier.harvest,'Septembre–octobre');
+ assert.match(data.temperatureMaximum,/Non documentée/);
 });
 test('La comparaison accepte toutes les associations et conserve la sélection à l’export/import',()=>{
  const selected=rootstocks.map(r=>r.id);
  const project={...defaultProject,selected};
- assert.equal(validateProject(project).selected.length,25);
+ assert.equal(validateProject(project).selected.length,30);
  assert.deepEqual(validateProject(JSON.parse(JSON.stringify(report(project)))).selected,selected);
  assert.throws(()=>validateProject({...project,selected:[...selected,'inconnue']}));
+});
+
+test('Cinq nouvelles espèces : provenance, calendrier, inconnues et simulation explicite',()=>{
+ assert.equal(species.length,11);
+ for(const id of ['noisetier','figuier','amandier','cognassier','kaki']){
+  const r=rootstocks.find(item=>item.species===id);
+  assert.ok(r);assert.equal(r.spacing,null);assert.equal(r.fruiting,null);assert.equal(r.yieldKg,null);
+  assert.ok(sources.some(s=>s.id===r.source));assert.ok(speciesClimate[id].bloom);assert.ok(speciesClimate[id].harvest);
+  assert.match(speciesClimate[id].hardiness,/H[456]/);
+  assert.equal(simulate({...defaultProject.simulation,rootstock:r.id}).spacingWarning,null);
+  assert.equal(assess(r,filters({waterlogging:'high'})).status,'uncertain');
+ }
 });

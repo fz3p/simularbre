@@ -5,6 +5,7 @@
 - `npm test` : règles de sélection, calcul de croissance, validation et import/export de projet.
 - `npm run build:web` : création du dossier statique `dist/web/` à partir des ressources de `app/`.
 - Chargement du dossier construit par HTTP dans Chromium : interface JavaScript initialisée et catalogue affiché.
+- Version 1.3 : 12 tests passent ; le catalogue affiche 11 espèces et 30 profils/associations. La fiche Noisetier, sa rusticité, sa floraison, sa récolte et sa simulation avec espacement inconnu ont été vérifiées dans le navigateur local.
 
 ## Vérifications du site public — 30 septembre 2026
 

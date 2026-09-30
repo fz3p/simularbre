@@ -165,3 +165,24 @@ Les lignes numériques renvoient aux rubriques Hauteur de l’arbre adulte, Dist
 - Localisation : enherbement, protection sanitaire, taille, éclaircissage et récolte.
 - Retenu : surveillance, entretien du pied, taille de la canopée et éclaircissage selon l’espèce et la charge observée.
 - Limite : conseils généraux à adapter au terrain et à la saison.
+
+
+## Compléments du 30 septembre 2026 : cinq espèces et climat saisonnier
+
+Les fiches botaniques RHS suivantes documentent les classes de rusticité, les hauteurs générales des cinq espèces ajoutées et leurs saisons de floraison. Elles ne décrivent pas une association cultivar / porte-greffe et ne publient pas de température maximale de culture. Les classes de rusticité concernent la plante établie dans les conditions britanniques, non les fleurs.
+
+| Espèce | Source RHS | Classe retenue |
+| --- | --- | --- |
+| Pommier | [R-pommier](https://www.rhs.org.uk/plants/60558/malus-domestica-%28f%29/details) | H6 |
+| Poirier | [R-poirier](https://www.rhs.org.uk/plants/14227/pyrus-communis-f/details) | H6 |
+| Cerisier | [R-cerisier](https://www.rhs.org.uk/plants/13950/prunus-avium/details) | H6 |
+| Prunier | [R-prunier](https://www.rhs.org.uk/plants/84405/prunus-domestica-d-c/details) | H5 |
+| Abricotier | [R-abricotier](https://www.rhs.org.uk/plants/13949/prunus-armeniaca/details) | H4 |
+| Pêcher | [R-pecher](https://www.rhs.org.uk/plants/156648/prunus-persica/details) | H4 |
+| Noisetier | [R-noisetier](https://www.rhs.org.uk/plants/4511/corylus-avellana-f/details) | H6 |
+| Figuier | [R-figuier](https://www.rhs.org.uk/plants/7199/ficus-carica-%28f%29-fig-brown-turkey-fig/details) | H4 |
+| Amandier | [R-amandier](https://www.rhs.org.uk/plants/13964/prunus-dulcis/details) | H5 |
+| Cognassier | [R-cognassier](https://www.rhs.org.uk/plants/5160/cydonia-oblonga-f/details) | H5 |
+| Kaki | [R-kaki](https://www.rhs.org.uk/plants/5919/diospyros-kaki-f/details) | H4 |
+
+La [RHS, calendrier de production fruitière (R-H)](https://www.rhs.org.uk/Advice/PDFs/Beginners-Guide/FruitProductionChart.pdf) sert aux mois de récolte, sauf pour le kaki. Le [guide verger maraîcher SMART de l’Association Française d’Agroforesterie (A0)](https://www.agroforesterie.fr/wp-content/uploads/2022/07/guidevergermaraichersmart.pdf), tableau des espèces pages 16–17 du PDF, situe sa récolte en novembre et donne des repères de culture pour plusieurs des espèces ajoutées. Les fenêtres RHS sont britanniques, donc indicatives pour la France.

@@ -81,10 +81,11 @@ test('Le catalogue public couvre les espèces, trace les deux lectures et conser
  const ids=new Set([...sources,...varietySources,...nurserySources].map(s=>s.id));
  assert.equal(ids.size,sources.length+varietySources.length+nurserySources.length);
  assert.deepEqual(new Set(varieties.map(v=>v.species)),new Set(species.map(s=>s.id)));
- assert.equal(varieties.length,27);
+ assert.equal(varieties.length,30);
  for(const v of varieties){assert.ok(ids.has(v.source));assert.ok(v.name);assert.ok(v.summary);assert.ok(v.flowering===null||typeof v.flowering==='string');assert.ok(v.ripening===null||typeof v.ripening==='string');}
  for(const [id,cross] of Object.entries(nurseryCrosschecks)){assert.ok(varieties.some(v=>v.id===id));assert.ok(nurserySources.some(s=>s.id===cross.source));assert.ok(cross.note);}
+ assert.equal(varieties.filter(v=>v.species==='pommier').length,6);
  assert.equal(nurseryCrosschecks['cv-6'].status,'conflict');
  assert.match(nurseryCrosschecks['cv-6'].note,/CTIFL autostérile, pépinière autofertile/);
- const output=report(defaultProject);assert.equal(output.varietyCatalogue.varieties.length,27);assert.ok(output.sources.some(s=>s.id==='PB-FOL'));
+ const output=report(defaultProject);assert.equal(output.varietyCatalogue.varieties.length,30);assert.ok(output.sources.some(s=>s.id==='PB-FOL'));
 });

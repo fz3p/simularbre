@@ -10,7 +10,8 @@ Site public : [simularbre.levergerdesplumes.fr](https://simularbre.levergerdespl
 
 - 25 associations espèce / porte-greffe et cinq profils botaniques supplémentaires, soit onze espèces fruitières ; recherche et filtres de sol, d’eau et de hauteur.
 - Diagnostic expliqué pour chaque critère, comparaison des associations, fiches avec sources et limites.
-- Catalogue public de 27 variétés sur onze espèces, avec source technique ou de recherche et recoupement de pépinière quand disponible ; les désaccords restent visibles.
+- Catalogue public de 30 variétés sur onze espèces, dont six pommiers, avec source technique ou de recherche et recoupement de pépinière quand disponible ; les désaccords restent visibles.
+- Tableaux séparant l’espèce, le porte-greffe et les variétés de l’espèce. Le tableau variétal montre explicitement qu’aucun porte-greffe précis n’est attribué sans preuve de compatibilité.
 - Repères sur les ravageurs, les auxiliaires et l’entretien pour les six espèces couvertes par Deciduous ; suivi général pour les cinq autres.
 - Projection illustrative de hauteur sur 1 à 50 ans et géométrie indicative du houppier et de la plantation.
 - Projet enregistré dans le stockage local du navigateur, export/import JSON et export CSV du scénario.

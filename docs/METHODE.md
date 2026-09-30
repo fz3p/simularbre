@@ -1,4 +1,4 @@
-# Méthode de simulArbre 1.3
+# Méthode de simulArbre 1.4
 
 ## Trois niveaux distincts
 
@@ -19,6 +19,14 @@ Pour Sainte-Lucie 64, la fiche ne donne qu’une tolérance hydrique relative à
 ## Températures et phénologie
 
 La température minimale affichée est la plage associée à la classe de rusticité RHS (H4, H5 ou H6) de la plante établie en conditions britanniques. Ce n’est pas un seuil précis de survie et encore moins un seuil de résistance des bourgeons ou fleurs. La température maximale supportée reste « non documentée » pour les onze espèces : les sources retenues ne fournissent pas un seuil comparable selon la durée de chaleur, l’eau disponible, le stade et la variété. Les périodes de floraison sont qualitatives ; les mois de récolte proviennent du calendrier RHS, sauf le kaki (guide SMART). Elles doivent être ajustées au cultivar et au climat local.
+
+## Catalogue public des variétés
+
+Le catalogue rassemble 27 cultivars nommés pour les onze espèces. Une source de recherche, institutionnelle ou technique atteste chaque nom et les caractères repris. Une fiche de pépinière sert de seconde lecture lorsque nous avons trouvé une page vérifiable du même cultivar. Chaque fiche affiche séparément les deux références. Les périodes propres à la variété restent `null` lorsque la source technique ne les établit pas ; elles ne sont pas déduites de la période de l’espèce. Un recoupement commercial peut préciser une fenêtre située, sans la transformer en calendrier local.
+
+La concordance des noms ne prouve ni l’identité du matériel vendu, ni la compatibilité avec un porte-greffe, ni l’adaptation à la parcelle. Une divergence est conservée : pour Folfer, le CTIFL indique « autostérile » et une pépinière « autofertile ». Le catalogue retient l’observation technique du CTIFL pour la mise en garde et présente les deux liens. La pollinisation doit être vérifiée avant plantation. Les pages commerciales peuvent évoluer ; les dates de consultation figurent dans la base.
+
+Ce catalogue ne contient aucun nombre de plants, plan, emplacement ou donnée propre à un verger particulier. Il est exporté avec ses références pour que le projet JSON conserve le contexte documentaire.
 
 ## Diagnostic
 

@@ -1,4 +1,4 @@
-export const databaseVersion = '2026-09-30';
+export const databaseVersion = '2026-09-30-v2';
 const base = 'https://www.grab.fr/';
 export const sources = [
  {id:'D0',title:'Deciduous — outil de référence',url:'https://deciduous.sk8.inrae.fr/',publisher:'GRAB · INRAE · RMT Agroforesteries',kind:'Outil',scope:'Parcours espèces / porte-greffes puis variétés.',why:'Référence fonctionnelle demandée, consultée directement. Elle justifie le parcours de sélection, pas les équations de croissance.',limit:'simulArbre est une réalisation indépendante : son moteur de règles ne reproduit pas le code ni la base complète de Deciduous.',location:'Accueil et onglet Choix des Espèces et Porte-Greffes'},

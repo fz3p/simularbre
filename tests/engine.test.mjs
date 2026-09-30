@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {rootstocks,sources,species,speciesClimate,defaultProject,databaseVersion} from '../app/data.js';
 import {assess,rankStocks,simulate,validateProject,report} from '../app/engine.js';
+import {varieties,varietySources,nurserySources,nurseryCrosschecks} from '../app/varieties.js';
 const stock=(species,name)=>rootstocks.find(r=>r.species===species&&r.name===name);
 const filters=patch=>({...defaultProject.filters,...patch});
 test('Toutes les associations ont des intervalles cohérents et une source technique traçable',()=>{
@@ -74,4 +75,16 @@ test('Cinq nouvelles espèces : provenance, calendrier, inconnues et simulation 
   assert.equal(simulate({...defaultProject.simulation,rootstock:r.id}).spacingWarning,null);
   assert.equal(assess(r,filters({waterlogging:'high'})).status,'uncertain');
  }
+});
+
+test('Le catalogue public couvre les espèces, trace les deux lectures et conserve les désaccords',()=>{
+ const ids=new Set([...sources,...varietySources,...nurserySources].map(s=>s.id));
+ assert.equal(ids.size,sources.length+varietySources.length+nurserySources.length);
+ assert.deepEqual(new Set(varieties.map(v=>v.species)),new Set(species.map(s=>s.id)));
+ assert.equal(varieties.length,27);
+ for(const v of varieties){assert.ok(ids.has(v.source));assert.ok(v.name);assert.ok(v.summary);assert.ok(v.flowering===null||typeof v.flowering==='string');assert.ok(v.ripening===null||typeof v.ripening==='string');}
+ for(const [id,cross] of Object.entries(nurseryCrosschecks)){assert.ok(varieties.some(v=>v.id===id));assert.ok(nurserySources.some(s=>s.id===cross.source));assert.ok(cross.note);}
+ assert.equal(nurseryCrosschecks['cv-6'].status,'conflict');
+ assert.match(nurseryCrosschecks['cv-6'].note,/CTIFL autostérile, pépinière autofertile/);
+ const output=report(defaultProject);assert.equal(output.varietyCatalogue.varieties.length,27);assert.ok(output.sources.some(s=>s.id==='PB-FOL'));
 });

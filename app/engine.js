@@ -1,4 +1,5 @@
 import {rootstocks, speciesClimate, defaultProject, databaseVersion, sources} from './data.js';
+import {varieties, varietySources, nurserySources, nurseryCrosschecks} from './varieties.js';
 export const midpoint = r => (r[0]+r[1])/2;
 export function assess(stock, filters) {
  const checks=[];
@@ -49,5 +50,5 @@ export function validateProject(value) {
 }
 export function report(project) {
  const clean=validateProject(project);
- return { ...clean, exportedAt:new Date().toISOString(),databaseVersion,method:'Projection illustrative non calibrée : H(t)=H0+(H∞−H0)×(1−exp(−k×f×t)). Les bornes reflètent seulement la fourchette adulte, pas une incertitude statistique.',results:rankStocks(clean.filters),speciesClimate,temperatureMaximum:'Non documentée pour toutes les espèces : aucun seuil comparable retenu.',projection:simulate(clean.simulation),sources};
+ return { ...clean, exportedAt:new Date().toISOString(),databaseVersion,method:'Projection illustrative non calibrée : H(t)=H0+(H∞−H0)×(1−exp(−k×f×t)). Les bornes reflètent seulement la fourchette adulte, pas une incertitude statistique.',results:rankStocks(clean.filters),speciesClimate,temperatureMaximum:'Non documentée pour toutes les espèces : aucun seuil comparable retenu.',projection:simulate(clean.simulation),varietyCatalogue:{scope:'Sélection publique non exhaustive, sans inventaire de parcelle.',varieties,nurseryCrosschecks},sources:[...sources,...varietySources,...nurserySources]};
 }

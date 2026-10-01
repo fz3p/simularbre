@@ -1,4 +1,4 @@
-# Méthode de simulArbre 1.5
+# Méthode de simulArbre 1.6
 
 ## Trois niveaux distincts
 
@@ -22,9 +22,9 @@ La température minimale affichée est la plage associée à la classe de rustic
 
 ## Catalogue public des variétés
 
-Le catalogue rassemble 30 cultivars nommés pour les onze espèces. Une source de recherche, institutionnelle ou technique atteste chaque nom et les caractères repris. Une fiche de pépinière sert de seconde lecture lorsque nous avons trouvé une page vérifiable du même cultivar. Chaque fiche affiche séparément les deux références. Les périodes propres à la variété restent `null` lorsque la source technique ne les établit pas ; elles ne sont pas déduites de la période de l’espèce. Un recoupement commercial peut préciser une fenêtre située, sans la transformer en calendrier local.
+Le catalogue rassemble 33 entrées variétales pour les onze espèces, dont le groupe de cultivars Gala. Une source de recherche, institutionnelle ou technique atteste chaque nom et les caractères repris. Une fiche de pépinière sert de seconde lecture lorsque nous avons trouvé une page vérifiable du même cultivar. Chaque fiche affiche séparément les deux références. Les périodes propres à la variété restent `null` lorsque la source technique ne les établit pas ; elles ne sont pas déduites de la période de l’espèce. Un recoupement commercial peut préciser une fenêtre située, sans la transformer en calendrier local.
 
-La concordance des noms ne prouve ni l’identité du matériel vendu, ni la compatibilité avec un porte-greffe, ni l’adaptation à la parcelle. Une divergence est conservée : pour Folfer, le CTIFL indique « autostérile » et une pépinière « autofertile ». Le catalogue retient l’observation technique du CTIFL pour la mise en garde et présente les deux liens. La pollinisation doit être vérifiée avant plantation. Les pages commerciales peuvent évoluer ; les dates de consultation figurent dans la base.
+La concordance des noms ne prouve ni l’identité du matériel vendu, ni la compatibilité avec un porte-greffe, ni l’adaptation à la parcelle. Une divergence est conservée : pour Folfer, le CTIFL indique « autostérile » et une pépinière « autofertile ». Le catalogue retient l’observation technique du CTIFL pour la mise en garde et présente les deux liens. La pollinisation doit être vérifiée avant plantation. Les pages commerciales peuvent évoluer ; les dates de consultation figurent dans la base. Wikipédia sert à repérer des pistes ; un fait n’entre dans le catalogue que s’il est attesté par un organisme de recherche ou technique. Les statistiques anciennes, les dates locales présentées comme universelles et les seuils thermiques non comparables ne sont pas repris.
 
 Ce catalogue ne contient aucun nombre de plants, plan, emplacement ou donnée propre à un verger particulier. Il est exporté avec ses références pour que le projet JSON conserve le contexte documentaire.
 

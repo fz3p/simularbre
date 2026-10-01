@@ -4,8 +4,6 @@ Application web statique pour choisir des fruitiers à partir de sources documen
 
 **Application indépendante inspirée de Deciduous. Elle n’est ni une version officielle, ni une reproduction du moteur scientifique de l’INRAE. La croissance est une projection illustrative non calibrée.**
 
-Site public : [simularbre.levergerdesplumes.fr](https://simularbre.levergerdesplumes.fr/).
-
 ## Fonctionnalités
 
 - 25 associations espèce / porte-greffe et cinq profils botaniques supplémentaires, soit onze espèces fruitières ; recherche et filtres de sol, d’eau et de hauteur.
@@ -38,17 +36,12 @@ Le dossier `dist/web/` contient uniquement les sept ressources statiques nécess
 
 ## Déploiement
 
-Le site est servi par Apache sur le VPS, sans processus Node.js ni base de données. Les modèles [Apache](deploy/apache-simularbre.conf) et [Nginx](deploy/nginx-simularbre.conf) utilisent le sous-domaine `simularbre.levergerdesplumes.fr` et `/var/www/simularbre` comme racine.
-
-Pour préparer une livraison, exécutez `npm test` puis `npm run build:web`. Transférez `dist/web/` dans un dossier `web/` sur le VPS avec les fichiers `deploy/apache-simularbre*.conf` et `scripts/install-web-vps.sh`, puis lancez ce script avec `sudo`. Il installe les fichiers, crée au besoin le certificat avec Certbot et active le vhost Apache. Une nouvelle livraison remplace les fichiers web et conserve le certificat. Le répertoire distant de livraison est temporaire et ne fait pas partie du site servi.
-
-Vérifiez ensuite l’URL HTTPS, la redirection depuis HTTP, le chargement des modules et l’export/import d’un projet. Le dossier de publication ne doit contenir aucun fichier privé.
+Après `npm test` et `npm run build:web`, publiez le contenu de `dist/web/` avec le serveur web de votre choix. La configuration du serveur et les accès restent hors du dépôt public.
 
 ## Structure
 
 - `app/` : interface, base technique, moteur et styles.
 - `scripts/build-web.mjs` : construit le dossier de publication.
-- `scripts/install-web-vps.sh`, `deploy/` : installation sur le VPS et modèles de vhost.
 - `tests/` : tests du moteur, de la base et des projets.
 
 Le contenu des tableaux originaux et les marques restent attribués à leurs auteurs. Le projet embarque une transcription structurée de faits et de courtes reformulations, sans les images ni les logos des partenaires. Aucune licence de réutilisation globale de la base Deciduous n’est présumée.

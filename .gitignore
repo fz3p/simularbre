@@ -5,3 +5,7 @@ dist/
 .env*
 *.pem
 *.key
+
+# Configuration et scripts de publication propres au serveur
+/deploy/
+/scripts/install-web-vps.sh
